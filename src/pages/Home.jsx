@@ -1,0 +1,11 @@
+import React from "react";
+
+const Home = () => {
+  return (
+    <div>
+      <p>메인으로 보여질 페이지 입니다</p>
+    </div>
+  );
+};
+
+export default Home;
