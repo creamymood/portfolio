@@ -4,9 +4,14 @@ import MovieCard from "../components/MovieCard";
 import MovieDetail from "../components/MovieDetail";
 import styled from "styled-components";
 import { api } from "../api/axios";
+import { Link, useNavigate } from "react-router-dom";
 
 const Home = () => {
   const [movie, setMovie] = useState([]);
+  const navigate = useNavigate();
+  const clickHandler = (movie) => {
+    navigate(`/movie/${movie.id}`);
+  };
 
   useEffect(() => {
     api
@@ -23,7 +28,13 @@ const Home = () => {
       {movie
         .filter((movie) => movie.adult === false)
         .map((movie) => {
-          return <MovieCard key={movie.id} movie={movie} />;
+          return (
+            <MovieCard
+              key={movie.id}
+              movie={movie}
+              onClick={() => clickHandler(movie)}
+            />
+          );
         })}
     </Card>
   );

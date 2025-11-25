@@ -11,7 +11,8 @@ function App() {
       <Routes>
         <Route path="/" element={<NavBar />}>
           <Route index element={<Home />} />
-          <Route path="/details" element={<MovieDetail />} />
+          <Route path="/movie/:id" element={<MovieDetail />} />
+          {/* <Route path="/details" element={<MovieDetail />} /> */}
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
